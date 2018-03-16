@@ -10,7 +10,7 @@ import javax.swing.JButton;
 public class AdderEngine implements ActionListener {
 
     /**
-     * Свойство - родитель
+     * Свойство - родитель.
      */
     Adder parent;
 
