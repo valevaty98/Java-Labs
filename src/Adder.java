@@ -7,7 +7,7 @@ import java.awt.Dimension;
  * инициализации
  * фрэйма приложения.
  *
- * @author Vladislav Valevaty
+ * @author Vladislav Valevaty.
  */
 public class Adder {
     JPanel windowContent;
