@@ -12,7 +12,7 @@ public class AdderEngine implements ActionListener {
     /**
      * Свойство - родитель.
      */
-    Adder parent;
+    private Adder parent;
 
     /**
      * Конструктор задает родителя объекту.
