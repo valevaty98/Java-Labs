@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.Label;
+
 /**
  * Class Engine is a detail of Auto.
  */
@@ -18,25 +20,26 @@ public class Engine extends Detail {
      * @return boolean
      */
     @Override
-    public boolean run(Detail wheel, Detail fuelTank) {
+    public boolean run(Detail wheel, Detail fuelTank, Label processLabel) {
         if (!isEngineStart) {
-            startRunning();
+            startRunning(processLabel);
         }
-        System.out.println("Двигатель работает");
-        if (fuelTank.relineFuel()) {
-            wheel.rotate();
+        processLabel.setText(processLabel.getText() + "Двигатель работает\n");
+        if (fuelTank.relineFuel(processLabel)) {
+            wheel.rotate(processLabel);
             return true;
         } else {
-            System.out.println("Недостаточно топлива");
+            processLabel.setText(processLabel.getText() + "Недостаточно топлива");
             return false;
         }
     }
 
     /**
      * Starts the engine.
+     * @param processLabel - label of the process
      */
-    public void startRunning() {
-        System.out.println("\nДвигатель заведен");
+    public void startRunning(Label processLabel) {
+        processLabel.setText(processLabel.getText() + "Двигатель заведен\n");
         isEngineStart = true;
     }
 
@@ -44,9 +47,9 @@ public class Engine extends Detail {
      * Stops the engine.
      */
     @Override
-    public void stopRunning(Detail wheel) {
-        System.out.println("\nДвигатель остановлен");
+    public void stopRunning(final Detail wheel,final Label processLabel) {
+        processLabel.setText(processLabel.getText() + "Двигатель остановлен\n");
         isEngineStart = false;
-        wheel.stopRotate();
+        wheel.stopRotate(processLabel);
     }
 }

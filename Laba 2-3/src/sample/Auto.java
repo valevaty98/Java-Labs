@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.Label;
+
 /**
  * Conatainer for Auto details.
  */
@@ -18,16 +20,15 @@ public class Auto {
         body = new Body(4.5, 4);
     }
 
-    public boolean ride(boolean isTheCarReady) {
-        //if (isTheCarReady) {
-            return engine.run(wheel, fuelTank);
-        //} else {
-
-        //    return false;
-       // }
+    public boolean ride(final boolean isTheCarReady, final Label processLabel) {
+        if (isTheCarReady) {
+            return engine.run(wheel, fuelTank, processLabel);
+        } else {
+            return false;
+        }
     }
 
-    public void stop() {
-        engine.stopRunning(wheel);
+    public void stop(final Label processLabel) {
+        engine.stopRunning(wheel, processLabel);
     }
 }

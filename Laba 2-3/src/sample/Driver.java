@@ -1,64 +1,67 @@
 package sample;
 
+
+import javafx.scene.control.Label;
+
 public class Driver {
     Auto myAuto;
     Body bodyOfAuto;
     Wheel wheelOfAuto;
     boolean isTheCarReady;
 
-    public Driver(Auto auto) {
+    public Driver(final Auto auto) {
         myAuto = auto;
         bodyOfAuto = (Body) myAuto.body;
         wheelOfAuto = (Wheel) myAuto.wheel;
-        //isTheCarReady = false;
+        isTheCarReady = false;
     }
 
-    public boolean driveAuto(boolean isRide) {
+    public boolean driveAuto(final boolean isRide, final Label processLabel) {
         if (isRide) {
             if (this.bodyOfAuto.isTheDoorOpen) {
-                System.out.println("You mast close the door");
+                processLabel.setText(processLabel.getText() + "You must close the door\n");
             }
             if (!this.wheelOfAuto.isInflate) {
-                System.out.println("You mast inflate the wheel");
+                processLabel.setText(processLabel.getText() + "You must inflate the wheel\n");
             }
-            return myAuto.ride(isTheCarReady);
+            return myAuto.ride(isTheCarReady, processLabel);
         } else {
-            myAuto.stop();
+            myAuto.stop(processLabel);
             return false;
         }
     }
 
-    public void openTheDoor() {
+    public void openTheDoor(Label doorCondition) {
         if (!this.bodyOfAuto.isTheDoorOpen) {
             this.bodyOfAuto.isTheDoorOpen = true;
-            System.out.println("The door is opened");
-            //if (this.wheelOfAuto.isInflate) {
-            //    isTheCarReady = true;
-            //}
+            doorCondition.setText("The door is opened");
         } else {
-            System.out.println("The door has already opened.");
+            doorCondition.setText("The door has already opened");
         }
+        isTheCarReady = false;
     }
 
-    public void closeTheDoor() {
+    public void closeTheDoor(Label doorCondition) {
         if (this.bodyOfAuto.isTheDoorOpen) {
             this.bodyOfAuto.isTheDoorOpen = false;
-            System.out.println("The door is closed");
-           // isTheCarReady = false;
+            doorCondition.setText("The door is closed");
         } else {
-            System.out.println("The door has already closed.");
+            doorCondition.setText("The door has already closed");
+        }
+        if (this.wheelOfAuto.isInflate) {
+            isTheCarReady = true;
         }
     }
 
-    public void inflateWheel() {
+    public void inflateWheel(Label wheelCondition) {
         if (!this.wheelOfAuto.isInflate) {
             this.wheelOfAuto.isInflate = true;
-            System.out.println("The wheel is inflated.");
-           // if (this.bodyOfAuto.isTheDoorOpen) {
-           //    isTheCarReady = true;
-           // }
+            wheelCondition.setText("The wheel is inflated");
         } else {
-            System.out.println("The wheel has already inflated.");
+            wheelCondition.setText("The wheel has already inflated");
+        }
+        if (!this.bodyOfAuto.isTheDoorOpen) {
+            isTheCarReady = true;
         }
     }
 

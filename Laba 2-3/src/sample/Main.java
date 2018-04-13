@@ -3,7 +3,6 @@ package sample;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,13 +23,16 @@ public class Main extends Application {
     Label doorCondition;
     Label carCondition;
     GridPane gridPane;
+    Label processLabel;
+
 
     /**
-     *implement Application's abstract method start().
+     * implement Application's abstract method start().
+     *
      * @param primaryStage - Stage object
      */
     @Override
-    public void start(Stage primaryStage) {
+    public void start(final Stage primaryStage) {
 
         buttonInflateWheel = new Button("Inflate the wheel");
         buttonOpenTheDoor = new Button("Open the door");
@@ -41,18 +43,18 @@ public class Main extends Application {
         wheelCondition = new Label("The wheel is deflated");
         carCondition = new Label("The car is stoped");
         doorCondition = new Label("The door is opened");
+        processLabel = new Label();
 
         buttonRide.setMinSize(190, 25);
         buttonStop.setMinSize(190, 25);
         buttonInflateWheel.setMinSize(190, 25);
         buttonOpenTheDoor.setMinSize(190, 25);
         buttonCloseTheDoor.setMinSize(190, 25);
-        carCondition.setAlignment(Pos.CENTER_RIGHT);
         //Creating a Grid Pane
         gridPane = new GridPane();
 
         //Setting size for the pane
-        gridPane.setMinSize(400, 500);
+        gridPane.setMinSize(400, 300);
 
         //Setting the padding
         gridPane.setPadding(new Insets(10, 10, 10, 10));
@@ -67,11 +69,12 @@ public class Main extends Application {
         gridPane.add(buttonRide, 0, 0);
         gridPane.add(buttonStop, 1, 0);
         gridPane.add(carCondition, 0, 1);
-        gridPane.add(buttonInflateWheel, 1, 2);
-        gridPane.add(buttonOpenTheDoor, 1, 3);
-        gridPane.add(buttonCloseTheDoor, 1, 4);
-        gridPane.add(doorCondition, 0, 3);
-        gridPane.add(wheelCondition, 0, 2);
+        gridPane.add(processLabel, 0, 6);
+        gridPane.add(buttonInflateWheel, 0, 2);
+        gridPane.add(buttonOpenTheDoor, 1, 2);
+        gridPane.add(buttonCloseTheDoor, 1, 3);
+        gridPane.add(doorCondition, 1, 4);
+        gridPane.add(wheelCondition, 0, 4);
 
         Controller controller = new Controller(this);
 
@@ -89,6 +92,7 @@ public class Main extends Application {
 
     /**
      * Entry point.
+     *
      * @param args - from command prompt
      */
     public static void main(String[] args) {

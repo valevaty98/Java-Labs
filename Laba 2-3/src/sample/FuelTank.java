@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.Label;
+
 /**
  * Class "Топливный бак".
  */
@@ -7,7 +9,7 @@ public class FuelTank extends Detail {
     private double capacity;
     private double fuelQuantity;
 
-    public FuelTank(double mass, double capacity, double fuelQuantity) {
+    public FuelTank(final double mass, final double capacity, final double fuelQuantity) {
         super(mass);
         this.capacity = capacity;
         this.fuelQuantity = fuelQuantity;
@@ -18,11 +20,10 @@ public class FuelTank extends Detail {
      * @return false if not enough fuel
      */
     @Override
-    public boolean relineFuel() {
-        System.out.println("5 литров запрошено");
+    public boolean relineFuel(Label processLabel) {
         if (fuelQuantity >= 5) {
             fuelQuantity -= 5;
-            System.out.println("5 литров отдано. Осталось " + fuelQuantity + " литров.");
+            processLabel.setText(processLabel.getText() + "5 литров отдано. Осталось " + fuelQuantity + " литров.\n");
             return true;
         } else {
             return false;

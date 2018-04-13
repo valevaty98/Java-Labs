@@ -1,10 +1,10 @@
 package sample;
 
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 
 /**
  * Event-handling class.
@@ -16,22 +16,24 @@ public class Controller {
     private Driver iAm;
     private Tractor auto;
     private Button clickedButton;
-    private int row0;
-    private int row1;
-    private int col;
-    private int counter0;
-    private int counter1;
+    Alert alert;
+    Label processLabel;
+    String txt;
 
     /**
      * Constructor of the class.
      *
      * @param parent - Main GUI object
      */
-    Controller(Main parent) {
+    Controller(final Main parent) {
         this.parent = parent;
         flag = false;
         auto = new Tractor("BELAZ", "TheBestSnowCleaner");
         iAm = new Driver(auto);
+        alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("ALERT");
+        alert.setHeaderText(null);
+        processLabel = parent.processLabel;
     }
 
     EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
@@ -46,34 +48,36 @@ public class Controller {
             clickedButton = (Button) e.getSource();
 
             if (clickedButton == parent.buttonRide) {
+                processLabel.setText("");
                 if (!flag) {
-                    if (iAm.driveAuto(true)) {
+                    if (iAm.driveAuto(true, processLabel)) {
                         parent.carCondition.setText("The car is riding");
                         flag = true;
                     } else {
-                        parent.carCondition.setText("Not enough fuel");
+                        parent.carCondition.setText("The moving is impossible");
                         flag = false;
                     }
                 } else {
                     parent.carCondition.setText("The Auto has already gone");
                 }
             } else if (clickedButton == parent.buttonStop) {
+                processLabel.setText("");
                 if (flag) {
                     parent.carCondition.setText("The car is stopped");
-                    iAm.driveAuto(false);
+                    iAm.driveAuto(false, processLabel);
                     flag = false;
                 } else {
                     parent.carCondition.setText("The Auto has already stopped");
                 }
             } else if (clickedButton == parent.buttonOpenTheDoor) {
-                iAm.openTheDoor();
-                parent.doorCondition.setText("The door is opened");
+                iAm.openTheDoor(parent.doorCondition);
+                //parent.doorCondition.setText("The door is opened");
             } else if (clickedButton == parent.buttonCloseTheDoor) {
-                iAm.closeTheDoor();
-                parent.doorCondition.setText("The door is closed");
+                iAm.closeTheDoor(parent.doorCondition);
+                //parent.doorCondition.setText("The door is closed");
             } else if (clickedButton == parent.buttonInflateWheel) {
-                iAm.inflateWheel();
-                parent.wheelCondition.setText("The wheel is inflated");
+                iAm.inflateWheel(parent.wheelCondition);
+               //parent.wheelCondition.setText("The wheel is inflated");
             }
         }
     };
