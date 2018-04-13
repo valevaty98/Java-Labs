@@ -53,7 +53,12 @@ public class Main extends Application {
         buttonOpenTheDoor.setMinSize(190, 25);
         buttonCloseTheDoor.setMinSize(190, 25);
         buttonCleanSnow.setMinSize(385, 25);
-        //buttonCleanSnow.setAlignment(Pos.TOP_CENTER);
+        carCondition.setMinHeight(35);
+        carCondition.setAlignment(Pos.TOP_LEFT);
+        wheelCondition.setMinHeight(35);
+        wheelCondition.setAlignment(Pos.TOP_LEFT);
+        doorCondition.setMinHeight(35);
+        doorCondition.setAlignment(Pos.TOP_LEFT);
 
         //Creating a Grid Pane
         gridPane = new GridPane();
@@ -78,7 +83,7 @@ public class Main extends Application {
         gridPane.add(buttonInflateWheel, 0, 2);
         gridPane.add(buttonOpenTheDoor, 1, 2);
         gridPane.add(buttonCloseTheDoor, 1, 3);
-        gridPane.add(buttonCleanSnow, 0, 6, 2,1);
+        gridPane.add(buttonCleanSnow, 0, 6, 2, 1);
         gridPane.add(doorCondition, 1, 4);
         gridPane.add(wheelCondition, 0, 4);
 
@@ -89,6 +94,7 @@ public class Main extends Application {
         buttonInflateWheel.addEventFilter(MouseEvent.MOUSE_CLICKED, controller.eventHandler);
         buttonOpenTheDoor.addEventFilter(MouseEvent.MOUSE_CLICKED, controller.eventHandler);
         buttonCloseTheDoor.addEventFilter(MouseEvent.MOUSE_CLICKED, controller.eventHandler);
+        buttonCleanSnow.addEventFilter(MouseEvent.MOUSE_CLICKED, controller.eventHandler);
 
         primaryStage.setTitle("Auto");
         primaryStage.setScene(new Scene(gridPane));
@@ -98,7 +104,6 @@ public class Main extends Application {
 
     /**
      * Entry point.
-     *
      * @param args - from command prompt
      */
     public static void main(String[] args) {

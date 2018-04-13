@@ -16,9 +16,7 @@ public class Controller {
     private Driver iAm;
     private Tractor auto;
     private Button clickedButton;
-    Alert alert;
     Label processLabel;
-    String txt;
 
     /**
      * Constructor of the class.
@@ -30,9 +28,6 @@ public class Controller {
         flag = false;
         auto = new Tractor("BELAZ", "TheBestSnowCleaner");
         iAm = new Driver(auto);
-        alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("ALERT");
-        alert.setHeaderText(null);
         processLabel = parent.processLabel;
     }
 
@@ -43,7 +38,7 @@ public class Controller {
          * @param e - contains info about event
          */
         @Override
-        public void handle(MouseEvent e) {
+        public void handle(final MouseEvent e) {
 
             clickedButton = (Button) e.getSource();
 
@@ -78,7 +73,7 @@ public class Controller {
             } else if (clickedButton == parent.buttonInflateWheel) {
                 iAm.inflateWheel(parent.wheelCondition);
                //parent.wheelCondition.setText("The wheel is inflated");
-            }else if (clickedButton == parent.buttonCleanSnow) {
+            } else if (clickedButton == parent.buttonCleanSnow) {
                 auto.cleanSnow(parent.processLabel);
             }
         }

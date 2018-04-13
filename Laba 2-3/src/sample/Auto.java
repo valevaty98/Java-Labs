@@ -20,6 +20,11 @@ public class Auto {
         body = new Body(4.5, 4);
     }
 
+    /**
+     * @param isTheCarReady - true, if the car is ready to ride
+     * @param processLabel - Label for setting a text
+     * @return true, if car can ride
+     */
     public boolean ride(final boolean isTheCarReady, final Label processLabel) {
         if (isTheCarReady) {
             return engine.run(wheel, fuelTank, processLabel);
@@ -28,6 +33,10 @@ public class Auto {
         }
     }
 
+    /**
+     * stop moving
+     * @param processLabel- Label for setting a text
+     */
     public void stop(final Label processLabel) {
         engine.stopRunning(wheel, processLabel);
     }

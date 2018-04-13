@@ -47,7 +47,7 @@ public class Engine extends Detail {
      * Stops the engine.
      */
     @Override
-    public void stopRunning(final Detail wheel,final Label processLabel) {
+    public void stopRunning(final Detail wheel, final Label processLabel) {
         processLabel.setText(processLabel.getText() + "Двигатель остановлен\n");
         isEngineStart = false;
         wheel.stopRotate(processLabel);

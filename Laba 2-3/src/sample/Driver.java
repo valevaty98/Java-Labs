@@ -16,6 +16,12 @@ public class Driver {
         isTheCarReady = false;
     }
 
+    /**
+     *
+     * @param isRide - true, if auto must start running
+     * @param processLabel - Label for writing info
+     * @return true, if car is riding
+     */
     public boolean driveAuto(final boolean isRide, final Label processLabel) {
         if (isRide) {
             if (this.bodyOfAuto.isTheDoorOpen) {
@@ -31,6 +37,9 @@ public class Driver {
         }
     }
 
+    /**
+     * @param doorCondition - true, if door is opened
+     */
     public void openTheDoor(Label doorCondition) {
         if (!this.bodyOfAuto.isTheDoorOpen) {
             this.bodyOfAuto.isTheDoorOpen = true;
@@ -41,6 +50,10 @@ public class Driver {
         isTheCarReady = false;
     }
 
+    /**
+     *
+     * @param doorCondition - true, if door is opened
+     */
     public void closeTheDoor(Label doorCondition) {
         if (this.bodyOfAuto.isTheDoorOpen) {
             this.bodyOfAuto.isTheDoorOpen = false;
@@ -53,6 +66,10 @@ public class Driver {
         }
     }
 
+    /**
+     *
+     * @param wheelCondition - true, if wheel is inflated
+     */
     public void inflateWheel(Label wheelCondition) {
         if (!this.wheelOfAuto.isInflate) {
             this.wheelOfAuto.isInflate = true;

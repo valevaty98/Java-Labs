@@ -11,19 +11,11 @@ public abstract class Detail {
 
     public Detail(final double mass) {
         this.mass = mass;
-    }
+    };
 
-    ;
+    public void test() {};
 
-    public void test() {
-    }
-
-    ;
-
-    public void rotate(Label processLabel) {
-    }
-
-    ;
+    public void rotate(Label processLabel) {};
 
     public boolean run(final Detail wheel, final Detail fuelTank, Label processLabel) {
         return true;
@@ -33,13 +25,7 @@ public abstract class Detail {
         return true;
     }
 
-    public void stopRotate(Label processLabel) {
-    }
+    public void stopRotate(Label processLabel) {};
 
-    ;
-
-    public void stopRunning(Detail wheel, Label processLabel) {
-    }
-
-    ;
+    public void stopRunning(Detail wheel, Label processLabel) {};
 }
