@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.Label;
+
 public class Tractor extends Auto {
     String snowCleaner;
 
@@ -8,8 +10,7 @@ public class Tractor extends Auto {
         this.snowCleaner = snowCleaner;
     }
 
-
-    public void cleanSnow() {
-
+    public void cleanSnow(Label prossesCondition) {
+        prossesCondition.setText("I'm cleaning snow");
     }
 }

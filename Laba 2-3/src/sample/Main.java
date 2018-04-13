@@ -19,6 +19,7 @@ public class Main extends Application {
     Button buttonCloseTheDoor;
     Button buttonRide;
     Button buttonStop;
+    Button buttonCleanSnow;
     Label wheelCondition;
     Label doorCondition;
     Label carCondition;
@@ -39,6 +40,7 @@ public class Main extends Application {
         buttonCloseTheDoor = new Button("Close the door");
         buttonRide = new Button("Ride");
         buttonStop = new Button("Stop");
+        buttonCleanSnow = new Button("Clean snow");
 
         wheelCondition = new Label("The wheel is deflated");
         carCondition = new Label("The car is stoped");
@@ -50,6 +52,9 @@ public class Main extends Application {
         buttonInflateWheel.setMinSize(190, 25);
         buttonOpenTheDoor.setMinSize(190, 25);
         buttonCloseTheDoor.setMinSize(190, 25);
+        buttonCleanSnow.setMinSize(385, 25);
+        //buttonCleanSnow.setAlignment(Pos.TOP_CENTER);
+
         //Creating a Grid Pane
         gridPane = new GridPane();
 
@@ -69,10 +74,11 @@ public class Main extends Application {
         gridPane.add(buttonRide, 0, 0);
         gridPane.add(buttonStop, 1, 0);
         gridPane.add(carCondition, 0, 1);
-        gridPane.add(processLabel, 0, 6);
+        gridPane.add(processLabel, 0, 7, 2, 1);
         gridPane.add(buttonInflateWheel, 0, 2);
         gridPane.add(buttonOpenTheDoor, 1, 2);
         gridPane.add(buttonCloseTheDoor, 1, 3);
+        gridPane.add(buttonCleanSnow, 0, 6, 2,1);
         gridPane.add(doorCondition, 1, 4);
         gridPane.add(wheelCondition, 0, 4);
 

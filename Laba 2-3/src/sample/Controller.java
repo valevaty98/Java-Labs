@@ -78,6 +78,8 @@ public class Controller {
             } else if (clickedButton == parent.buttonInflateWheel) {
                 iAm.inflateWheel(parent.wheelCondition);
                //parent.wheelCondition.setText("The wheel is inflated");
+            }else if (clickedButton == parent.buttonCleanSnow) {
+                auto.cleanSnow(parent.processLabel);
             }
         }
     };
