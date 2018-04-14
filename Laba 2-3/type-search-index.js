@@ -1,1 +1,1 @@
-typeSearchIndex = [{"p":"sample","l":"Auto"},{"p":"sample","l":"Controller"},{"p":"sample","l":"Detail"},{"p":"sample","l":"Engine"},{"p":"sample","l":"FuelTank"},{"p":"sample","l":"Main"},{"p":"sample","l":"Wheel"}]
+typeSearchIndex = [{"p":"sample","l":"Auto"},{"p":"sample","l":"Body"},{"p":"sample","l":"Controller"},{"p":"sample","l":"Detail"},{"p":"sample","l":"Driver"},{"p":"sample","l":"Engine"},{"p":"sample","l":"FuelTank"},{"p":"sample","l":"Main"},{"p":"sample","l":"Tractor"},{"p":"sample","l":"Wheel"}]
