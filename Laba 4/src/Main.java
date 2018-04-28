@@ -74,6 +74,7 @@ public class Main {
 
     /**
      * Entry point.
+     * @param args - command line
      */
     public static void main(String[] args) {
         Main mainThreat = new Main();
